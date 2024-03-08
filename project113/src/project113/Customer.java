@@ -7,7 +7,7 @@ public class Customer {
 	private String phoneNo ;
 	
 	public Customer (int id , String n , String phNo) {
-		
+
 		cID = id ;
 		name = n ;
 		phoneNo = phNo ;
