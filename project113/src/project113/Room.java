@@ -1,7 +1,5 @@
 package project113;
 
-public class Room  {
-  package project113;
 
 public abstract class Room {
 	
