@@ -26,8 +26,24 @@ public abstract class Room {
 	
 	public String toString() {
 		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo ;
-		s += "\n View: " + view + "\n Number of Days: " + duration();
+		s += "\n View: " + view + "\n Number of Days: " + duration() + "\n";
 		return s;
+	}
+
+	public int getRoomNo() {
+		return RoomNo;
+	}
+
+	public void setRoomNo(int roomNo) {
+		RoomNo = roomNo;
+	}
+
+	public boolean isAvailable() {
+		return Available;
+	}
+
+	public void setAvailable(boolean available) {
+		Available = available;
 	}
 	
 	
