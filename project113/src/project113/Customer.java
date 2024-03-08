@@ -10,7 +10,7 @@ public class Customer {
 
 		cID = id ;
 		name = n ;
-		phoneNo = phNo ;
+		phoneNo = phNo ;   
 	}
 	
 	public void display() {
