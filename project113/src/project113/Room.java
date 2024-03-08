@@ -1,8 +1,5 @@
 package project113;
 
-public class Room  {
-  package project113;
-
 public abstract class Room {
 	
 	protected int RoomNo;
@@ -38,4 +35,4 @@ public abstract class Room {
 }
 
 
-}
+
