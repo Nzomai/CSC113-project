@@ -8,11 +8,11 @@ public Room [] LisOfRooms;
 
 
 
-public Hotel(String hName, String adress, int size) {
+public Hotel(String hName, String adress) {
 	this.hName = hName;
 	Adress = adress;
 	nOfRooms = 0;
-	LisOfRooms = new Room [size];
+	LisOfRooms = new Room [100];
 	}
 	
 	public Suite[] DisplayAvailableSuite() {
@@ -48,6 +48,31 @@ public Hotel(String hName, String adress, int size) {
 		
 	}
 	
+	public boolean addRoom (Room R) {
+		if (this.nOfRooms<LisOfRooms.length )
+		{
+		if (R instanceof Suite)
+			LisOfRooms [nOfRooms++] = new Suite ((Suite) R);
+		else
+			if (R instanceof Single)
+				LisOfRooms [nOfRooms++] = new Single ((Single) R);
+			return true;
+		}
+		return false;
+	}	
+			
+			
+			
+	public boolean findAvailableRoom (int NRoom) {
+		for (int i = 0 ; i<nOfRooms ; i++)
+			if (LisOfRooms [i].getRoomNo() == NRoom && LisOfRooms[i].isAvailable() )
+				return true;
+		return false;
+		
+		
+		
+		
+	}
 	
 	public String toString () {
 		
@@ -90,27 +115,7 @@ public Hotel(String hName, String adress, int size) {
 	public void setLisOfRooms(Room[] lisOfRooms) {
 		LisOfRooms = lisOfRooms;
 	}
+	}
 		
-		 
 	
-	
-	
-	
-	
-}
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
