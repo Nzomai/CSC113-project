@@ -13,6 +13,14 @@ public class Regular extends Room{
 		this.view = view;
 		this.nOfBeds = nOfBeds;
 	}
+	
+	
+	public Regular(Regular regular) {
+	    super (regular.RoomNo , regular.floorNo);
+	    nOfBeds = regular.nOfBeds;
+	    		}
+	
+	
 	@Override
 	public double calculatePrice() {
 		double p = (50 * nOfBeds) + Price; //it depends on number of beds he wants in a room

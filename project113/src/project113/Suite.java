@@ -13,6 +13,15 @@ public class Suite extends Room{
 		this.type = type;
 	}
 
+	
+
+	public Suite(Suite suite) {
+    super (suite.RoomNo , suite.floorNo);
+    type = suite.type;
+    
+	
+	}
+
 	@Override
 	public double calculatePrice() {
 		double p = 0 ;
