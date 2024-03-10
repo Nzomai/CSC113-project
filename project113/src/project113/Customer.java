@@ -7,11 +7,12 @@ public class Customer {
 	private String phoneNo ;
 	public Reservation customerReserv;
 
-	public Customer (int id , String n , String phNo) {
+	public Customer (int id , String n , String phNo ,Reservation cReserv) {
 
 		cID = id ;
 		name = n ;
 		phoneNo = phNo ;
+		customerReserv = cReserv ;
 	}
 
 	public void display() {
