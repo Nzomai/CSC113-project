@@ -1,21 +1,21 @@
 package project113;
 
-public class Single extends Room{
+public class Regular extends Room{
 
 	private int nOfBeds;
 
-	public Single(int rNo, int fNo, boolean view, int chIn, int chOut, int nOfBeds) {
-		super(rNo, fNo, view, chIn, chOut);
-		this.nOfBeds = nOfBeds;
+	public Regular(int rNo, int fNo) {
+		super(rNo, fNo);
 	}
 
-	public Single(Single s) {
-		super(s.RoomNo , s.floorNo ,s.view,s.checkIn,s.checkOut);
-		nOfBeds = s.nOfBeds;
+	public Regular(int rNo, int fNo, boolean view, int nOfBeds) {
+		super(rNo, fNo);
+		this.view = view;
+		this.nOfBeds = nOfBeds;
 	}
 	@Override
-	public double calculatePrice() {
-		double p = 350 * nOfBeds ;
+	public double calculatePrice() { 
+		double p = (50 * nOfBeds) + Price; //it depends on number of beds he wants in a room
 		if(view == true)
 			p += 150;
 		return p;
