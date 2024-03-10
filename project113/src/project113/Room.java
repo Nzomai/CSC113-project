@@ -40,12 +40,20 @@ public abstract class Room {
 		RoomNo = roomNo;
 	}
 
-	public boolean isAvailable() {
+	public boolean getAvailable() {
 		return Available;
 	}
 
 	public void setAvailable(boolean available) {
 		Available = available;
+	}
+
+	public int getFloorNo() {
+		return floorNo;
+	}
+
+	public void setFloorNo(int floorNo) {
+		this.floorNo = floorNo;
 	}
 
 
