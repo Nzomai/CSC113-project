@@ -12,7 +12,7 @@ public class Customer {
 		cID = id ;
 		name = n ;
 		phoneNo = phNo ;
-		customerReserv = cReserv ;
+		customerReserv = cReserv ; 
 	}
 
 	public void display() {
