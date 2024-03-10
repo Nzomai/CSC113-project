@@ -17,13 +17,13 @@ public class Suite extends Room{
 	public double calculatePrice() {
 		double p = 0 ;
 		switch(type) {
-		case 'S' : case 's': //Superior Suite
+		case 'S' : case 's':  //Superior Suite
 			p = Price + 2000;
 			break;
-		case 'J' : case 'j': //Junior Suite
+		case 'J' : case 'j':  //Junior Suite
 			p = Price + 1500;
 			break;
-		case 'D' : case 'd': //Deluxe Suite
+		case 'D' : case 'd':  //Deluxe Suite
 			p = Price + 1000;
 			break;
 		}
