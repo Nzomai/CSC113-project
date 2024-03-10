@@ -5,27 +5,26 @@ public abstract class Room {
 	protected int RoomNo;
 	protected int floorNo;
 	protected boolean Available;
+	protected double Price;
 	protected boolean view;
-	protected int checkIn;
-	protected int checkOut;
 	
-	public Room(int rNo, int fNo, boolean view, int chIn, int chOut) {
+	public Room(int rNo, int fNo) {
 		RoomNo = rNo;
 		floorNo = fNo;
-		this.view = view;
-		checkIn = chIn;
-		checkOut = chOut;
+		Available = true;
+		Price = 450 ;
 	}
 	
 	public abstract double calculatePrice();
 	
-	public int duration() {
-		return checkOut - checkIn;
-	}
+	
 	
 	public String toString() {
 		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo ;
-		s += "\n View: " + view + "\n Number of Days: " + duration();
+		if(view)
+			s += "\n with view";
+		else
+			s += "whithout view";
 		return s;
 	}
 	
