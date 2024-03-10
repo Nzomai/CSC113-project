@@ -12,7 +12,7 @@ public Hotel(String hName, String adress) {
 this.hName = hName;
 Adress = adress;
 nOfRooms = 0;
-LisOfRooms = new Room [100];
+LisOfRooms = new Room [30];
 }
 
 
