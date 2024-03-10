@@ -15,6 +15,7 @@ nOfRooms = 0;
 LisOfRooms = new Room [100];
 }
 
+
 public Suite[] DisplayAvailableSuite() {
 Suite SuiteList [] = new Suite [nOfRooms];
 int s = 0;
@@ -29,6 +30,7 @@ else
 return SuiteList;
 }
 
+
 public Single[] DisplayAvailableSingle() {
 Single SingleList [] = new Single [nOfRooms];
 int a = 0;
@@ -42,6 +44,8 @@ return null;
 else 
 return SingleList;
 }
+
+
 
 public boolean addRoom (Room R) {
 if (this.nOfRooms<LisOfRooms.length )
@@ -105,3 +109,5 @@ public void setLisOfRooms(Room[] lisOfRooms) {
 LisOfRooms = lisOfRooms;
 }
 }
+
+
