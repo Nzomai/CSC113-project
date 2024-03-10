@@ -3,92 +3,47 @@ package project113;
 public class Reservation {
 
 	private int ReservNo ;
-	private boolean payment ;
-	private Room myRoom ;
+	private int checkIn ;
+	private int checkOut ;
+	private Room customerRoom ; 
 
 
-	public Reservation(int RNo, boolean p, int size) {
+	public Reservation(int ResNo, int chIn, int chOut , Room cRoom) {
 
-		ReservNo = RNo;
-		this.payment = p;
-		this.roomList = new Room[size] ;
-		nOfr = 0 ;
+		ReservNo = ResNo;
+		this.checkIn = chIn ;
+		this.checkOut = chOut ;
+		this.customerRoom = cRoom ;
+	}
+	
+	public int duration() {
+		
+		return  checkOut - checkIn ;
 	}
 
-	public boolean addRoom(Room r) {
-		if (r.Available) {
-			if(nOfr < roomList.length) {
-				roomList[nOfr++ ] =  r ;
-			}
-			    r.Available = false ;
-				return true ;
-
-		} else {
-			return false ;
-		}
-
-	}
-
-	public boolean cancelReservation(int RoomNo) {
-
-		for(int i = 0 ; i < this.nOfr ; i++) {
-			if (roomList[i].getRoomNo() == RoomNo )
-			{
-				roomList[i] = roomList[nOfr-1] ;
-				nOfr-- ;
-				roomList[i] = null ;
-				roomList[i].setAvailable(true);
-			return true ;
-			}
-		}
-
-		return false ;
-
-	}
-
-	@Override
+		@Override
 	public String toString() {
 
-		String str = "" ;
-		for(int i = 0 ; i < this.nOfr ; i++) {
-			str+= roomList[i].toString() ;
+		return  "Reservation number = " + this.ReservNo + " , Check in Day: " + this.checkIn +  " , Check out Day: " +  "  , Number of days: " + duration() ;
+	}
+
+		public int getReservNo() {
+			return ReservNo;
 		}
 
-		return  "Reservation number = " + this.ReservNo + "Number of Rooms: " + this.nOfr + " \n Room information: \n"  + str;
-	}
+		public int getCheckIn() {
+			return checkIn;
+		}
 
-	public int getReservNo() {
-		return ReservNo;
-	}
+		public int getCheckOut() {
+			return checkOut;
+		}
 
-	public void setReservNo(int reservNo) {
-		ReservNo = reservNo;
-	}
+		public Room getCustomerRoom() {
+			return customerRoom;
+		}
 
-	public boolean isPayment() {
-		return payment;
-	}
-
-	public void setPayment(boolean payment) {
-		this.payment = payment;
-	}
-
-	public Room[] getRoomList() {
-		return roomList;
-	}
-
-	public void setRoomList(Room[] roomList) {
-		this.roomList = roomList;
-	}
-
-	public int getnOfr() {
-		return nOfr;
-	}
-
-	public void setnOfr(int nOfr) {
-		this.nOfr = nOfr;
-	}
-
+	
 
 
 

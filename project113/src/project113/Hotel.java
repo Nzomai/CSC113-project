@@ -119,4 +119,24 @@ LisOfRooms = lisOfRooms;
 }
 }
 
+/*  
+
+public boolean cancelReservation(int RNo) {
+
+for(int i = 0 ; i < this.nOfr ; i++) {
+	if (roomList[i].getReservNo() == RNo )
+	{
+		roomList[i] = roomList[nOfr-1] ;
+		nOfr-- ;
+		roomList[i] = null ;
+		roomList[i].setAvailable(true);
+	return true ;
+	}
+}
+
+return false ;
+
+}
+*/
+
 
