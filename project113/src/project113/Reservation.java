@@ -4,8 +4,8 @@ public class Reservation {
 	
 	private int ReservNo ;
 	private boolean payment ; 
-	Room [] roomList ;
-	int nOfr ;
+	private Room myRoom ;
+	
 	
 	public Reservation(int RNo, boolean p, int size) {
 		
