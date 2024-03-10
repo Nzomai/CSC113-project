@@ -1,13 +1,13 @@
 package project113;
 
 public class Suite extends Room{
-	
+
 	private char type;
 
 	public Suite(int rNo, int fNo) {
 		super(rNo, fNo);
 	}
-	
+
 	public Suite(int rNo, int fNo, boolean view, int chIn, int chOut, char type) {
 		super(rNo, fNo);
 		this.type = type;
@@ -27,8 +27,9 @@ public class Suite extends Room{
 			p = Price + 1000;
 			break;
 		}
-		if(view == true)
+		if(view) {
 			p += 500;
+		}
 		return p;
 	}
 
@@ -36,9 +37,9 @@ public class Suite extends Room{
 	public String toString() {
 		return super.toString() + "\n type: " + type ;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

@@ -14,21 +14,22 @@ public class Regular extends Room{
 		this.nOfBeds = nOfBeds;
 	}
 	@Override
-	public double calculatePrice() { 
+	public double calculatePrice() {
 		double p = (50 * nOfBeds) + Price; //it depends on number of beds he wants in a room
-		if(view == true)
+		if(view) {
 			p += 150;
+		}
 		return p;
-		
+
 	}
 
 	@Override
 	public String toString() {
 		return super.toString() + "\n nOfBeds: " + nOfBeds ;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }
