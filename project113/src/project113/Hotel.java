@@ -25,8 +25,8 @@ public Suite[] DisplayAvailableSuite() {
 Suite SuiteList [] = new Suite [nOfRooms];
 int s = 0;
 for (int i = 0 ; i<nOfRooms ; i++) 
-	if (LisOfRooms [i] instanceof Suite && LisOfRooms [i].getAvailable() ) {
-	SuiteList [s] = new Suite ((Suite) LisOfRooms [i]);
+	if (LisOfRooms[i] instanceof Suite && LisOfRooms[i].getAvailable() ) {
+	SuiteList [s] = new Suite ((Suite) LisOfRooms[i]);
 	s++;
 	}
 
@@ -42,8 +42,8 @@ public Regular[] DisplayAvailableRgular() {
 	Regular RegleList [] = new Regular [nOfRooms];
 int a = 0;
 for (int i = 0 ; i<nOfRooms ; i++) 
-	if (LisOfRooms [i] instanceof Regular && LisOfRooms [i].getAvailable() ) {
-		RegleList [a] = new Regular ((Regular) LisOfRooms [i]);
+	if (LisOfRooms[i] instanceof Regular && LisOfRooms[i].getAvailable() ) {
+		RegleList [a] = new Regular ((Regular) LisOfRooms[i]);
 	a++; 
 	}
 	
@@ -75,7 +75,7 @@ return false;
 
 public Room SearchRoom (int NRoom) {
 	
-	for (int i = 0 ; i<nOfRooms ; i++)
+	for (int i = 0 ; i<nOfReservations ; i++)
 		if (LisOfRooms[i].getRoomNo() == NRoom  )
 			return LisOfRooms[i] ;
 	return null ;
@@ -90,11 +90,17 @@ public boolean AddReservation(Reservation r) {
 	return false ;
 }
 
-
+public Reservation findReservation (String phoneNo) {
+	
+	for (int i = 0 ; i<nOfRooms ; i++)
+		if (LisOfReservations[i].getC().getPhoneNo().equals(phoneNo))
+			return LisOfReservations[i] ;
+	return null ;
+}
 public boolean CancelReservation(int RNo) {
  
 for(int i = 0 ; i < this.nOfReservations ; i++) {
-	if (LisOfReservations[i].getReservNo() == RNo )
+	if (LisOfReservations[i].getCustomerRoom().getRoomNo() == RNo )
 	{
 		LisOfReservations[i].getCustomerRoom().setAvailable(true);  // change room availability to true 
 		for(int j = 0 ; j < nOfReservations -1 ; j++)
