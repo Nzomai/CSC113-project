@@ -5,26 +5,44 @@ public class Reservation {
 	private int ReservNo ;
 	private int checkIn ;
 	private int checkOut ;
-	private Room customerRoom ; 
+	private Room customerRoom ;
+	private int nOfReserv ;
+	private Customer c ;
 
 
-	public Reservation(int ResNo, int chIn, int chOut , Room cRoom) {
+	public Reservation( int chIn , int chOut , Room cRoom , Customer c) {
 
-		ReservNo = ResNo;
+		ReservNo = generateResNumber();
 		this.checkIn = chIn ;
 		this.checkOut = chOut ;
 		this.customerRoom = cRoom ;
+		this.c = c ;
+		nOfReserv++ ;
+	}
+	
+    public int generateResNumber() {
+		
+		int r = 111 ;
+		return (r + nOfReserv) ;
 	}
 	
 	public int duration() {
 		
 		return  checkOut - checkIn ;
 	}
+	
+	public double totalPrice() {      // calculate reservation's price 
+		
+		return customerRoom.calculatePrice() * this.duration() ; 
+		
+	}
 
+	
+	
 		@Override
 	public String toString() {
 
-		return  "Reservation number = " + this.ReservNo + " , Check in Day: " + this.checkIn +  " , Check out Day: " +  "  , Number of days: " + duration() ;
+		return  "Reservation Info: \n" +  c.toString() + "Reservation number = " + this.ReservNo + " \n Check in Day: " + this.checkIn +  " ,   Check out Day: " +  "\n Number of days: " + duration() + " \n Reservation Cost:  " + this.totalPrice() ;
 	}
 
 		public int getReservNo() {

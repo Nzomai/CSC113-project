@@ -9,11 +9,12 @@ public abstract class Room {
 	protected double Price;
 	protected boolean view;
 
-	public Room(int rNo, int fNo) {
+	public Room(int rNo, int fNo , boolean view , double p) {
 		RoomNo = rNo;
 		floorNo = fNo;
+		this.view = view ;
 		Available = true;
-		Price = 450 ;
+		Price = p ;
 	}
 
 	public abstract double calculatePrice();
@@ -22,13 +23,13 @@ public abstract class Room {
 
 	@Override
 	public String toString() {
-		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo ;
+		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo + "\n Price is:" + this.calculatePrice()  ;
 		if(view) {
 			s += "\n with view";
 		} else {
-			s += "whithout view";
+			s += "\n whithout view";
 		}
-		s += "\n View: " + view ;
+		
 		return s;
 	}
 

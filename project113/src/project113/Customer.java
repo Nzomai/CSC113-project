@@ -5,19 +5,19 @@ public class Customer {
 	private int cID ;
 	private String name ;
 	private String phoneNo ;
-	public Reservation customerReserv;
+	// public Reservation customerReserv;
 
-	public Customer (int id , String n , String phNo ,Reservation cReserv) {
+	public Customer (int id , String n , String phNo ) {
 
 		cID = id ;
 		name = n ;
 		phoneNo = phNo ;
-		customerReserv = cReserv ; 
+		//customerReserv = cReserv ; 
 	}
 
-	public void display() {
+	public String toString() {
 
-		System.out.println(" Customer Name: " + name + ", ID IS: "+ cID + ", Phone Number: "+ phoneNo + "\n");
+		return " Customer Name: " + name + ", ID IS: "+ cID + ", Phone Number: "+ phoneNo + "\n";
 	}
 
 	public int getcID() {
@@ -44,14 +44,7 @@ public class Customer {
 		this.phoneNo = phoneNo;
 	}
 
-	public Reservation getCustomerReserv() {
-		return customerReserv;
-	}
-
-	public void setCustomerReserv(Reservation customerReserv) {
-		this.customerReserv = customerReserv;
-	}
-
+	
 	
 	
 }

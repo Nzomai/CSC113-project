@@ -2,7 +2,7 @@ package project113;
 
 public class Hotel {
 private String hName;
-private String Adress;
+private String Address;
 private int nOfRooms;
 private int nOfReservations;
 
@@ -11,13 +11,13 @@ public Reservation [] LisOfReservations;
 
 
 
-public Hotel(String hName, String adress) {
+public Hotel(String hName, String address , int size) {
 this.hName = hName;
-Adress = adress;
+Address = address;
 nOfRooms = 0;
 nOfReservations =0;
 LisOfRooms = new Room [30];
-LisOfReservations = new Reservation [30];
+LisOfReservations = new Reservation [size];
 }
 
 
@@ -38,7 +38,7 @@ if (s == 0)
 
 
 
-public Regular[] DisplayAvailableSingle() {
+public Regular[] DisplayAvailableRgular() {
 	Regular RegleList [] = new Regular [nOfRooms];
 int a = 0;
 for (int i = 0 ; i<nOfRooms ; i++) 
@@ -62,10 +62,10 @@ public boolean addRoom (Room R) {
 if (this.nOfRooms<LisOfRooms.length )
 {
 if (R instanceof Suite) {
-	LisOfRooms [nOfRooms++] = new Suite (R.getRoomNo() , R.getFloorNo());
+	LisOfRooms [nOfRooms++] = new Suite ( (Suite)(R));
 } else
 if (R instanceof Regular) {
-	LisOfRooms [nOfRooms++] = new Regular (R.getRoomNo() , R.getFloorNo());
+	LisOfRooms [nOfRooms++] = new Regular ( (Regular)(R) );
 }
 return true;
 }
@@ -73,23 +73,35 @@ return false;
 }
 
 
-public int SearchRoom (int NRoom) {
+public Room SearchRoom (int NRoom) {
+	
 	for (int i = 0 ; i<nOfRooms ; i++)
 		if (LisOfRooms[i].getRoomNo() == NRoom  )
-			return LisOfRooms[i].getFloorNo();
-	return 0;
+			return LisOfRooms[i] ;
+	return null ;
 }
 
-public boolean CancelReservation(int RNo) {
+public boolean AddReservation(Reservation r) {
+	
+	if ( nOfReservations < LisOfReservations.length) {
+		LisOfReservations[nOfReservations++] = r ;
+		return true ;
+	}
+	return false ;
+}
 
+
+public boolean CancelReservation(int RNo) {
+ 
 for(int i = 0 ; i < this.nOfReservations ; i++) {
 	if (LisOfReservations[i].getReservNo() == RNo )
 	{
+		LisOfReservations[i].getCustomerRoom().setAvailable(true);  // change room availability to true 
 		for(int j = 0 ; j < nOfReservations -1 ; j++)
 		LisOfReservations[j] = LisOfReservations[j+1] ;
 		nOfReservations-- ;
 		LisOfReservations[nOfReservations] = null ;
-		LisOfReservations[i].getCustomerRoom().setAvailable(true);
+		
 	return true ;
 	}
 }
@@ -105,7 +117,7 @@ return false ;
 
 @Override
 public String toString () {
-String str = "Hotel Name is = " + this.hName + "Number of Rooms =" +this.nOfRooms +"Adress = "+this.Adress +"\n";
+String str = "Hotel Name is = " + this.hName + "Number of Rooms =" +this.nOfRooms +"Adress = "+this.Address +"\n";
 str+= "============================\n";
 for (int i = 0 ; i<nOfRooms ; i++) {
 	str += LisOfRooms [i].toString() + "\n";
@@ -121,12 +133,12 @@ public void sethName(String hName) {
 this.hName = hName;
 }
 
-public String getAdress() {
-return Adress;
+public String getAddress() {
+return Address;
 }
 
-public void setAdress(String adress) {
-Adress = adress;
+public void setAddress(String address) {
+Address = address;
 }
 
 public int getnOfRooms() {
@@ -144,6 +156,19 @@ return LisOfRooms;
 public void setLisOfRooms(Room[] lisOfRooms) {
 LisOfRooms = lisOfRooms;
 }
+
+
+public Reservation[] getLisOfReservations() {
+	return LisOfReservations;
+}
+
+
+public int getnOfReservations() {
+	return nOfReservations;
+}
+
+
+
 }
 
 

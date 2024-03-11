@@ -4,42 +4,40 @@ public class Suite extends Room{
 
 	private char type;
 
-	public Suite(int rNo, int fNo) {
-		super(rNo, fNo);
+	public Suite(int rNo, int fNo , boolean view , double p ,char t) {
+		super(rNo, fNo , view , p );
+		this.type = t ;
 	}
 
-	public Suite(int rNo, int fNo, boolean view, int chIn, int chOut, char type) {
-		super(rNo, fNo);
-		this.type = type;
-	}
 
 	
 
-	public Suite(Suite suite) {
-    super (suite.RoomNo , suite.floorNo);
-    type = suite.type;
+	public Suite(Suite s) {
+		
+    super (s.RoomNo , s.floorNo , s.view , s.Price);
+    type = s.type;
     
-	
 	}
+	
 
 	@Override
 	public double calculatePrice() {
-		double p = 0 ;
+		
 		switch(type) {
 		case 'S' : case 's':  //Superior Suite
-			p = Price + 2000;
+			Price = Price + 1000;
 			break;
 		case 'J' : case 'j':  //Junior Suite
-			p = Price + 1500;
+			Price = Price + 700;
 			break;
 		case 'D' : case 'd':  //Deluxe Suite
-			p = Price + 1000;
+			Price = Price + 500;
 			break;
 		}
 		if(view) {
-			p += 500;
+			Price += 300;
 		}
-		return p;
+		return Price;
 	}
 
 	@Override

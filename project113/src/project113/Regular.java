@@ -4,19 +4,14 @@ public class Regular extends Room{
 
 	private int nOfBeds;
 
-	public Regular(int rNo, int fNo) {
-		super(rNo, fNo);
-	}
-
-	public Regular(int rNo, int fNo, boolean view, int nOfBeds) {
-		super(rNo, fNo);
-		this.view = view;
-		this.nOfBeds = nOfBeds;
+	public Regular(int rNo, int fNo , boolean view , double p ,int nOfBeds) {
+		super(rNo, fNo , view , p);
+		this.nOfBeds = nOfBeds ;
 	}
 	
 	
 	public Regular(Regular regular) {
-	    super (regular.RoomNo , regular.floorNo);
+	    super (regular.RoomNo , regular.floorNo , regular.view , regular.Price);
 	    nOfBeds = regular.nOfBeds;
 	    		}
 	
