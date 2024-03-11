@@ -33,16 +33,49 @@ public class Test {
 		 int choice ;
 		 do {
 			 System.out.println(" Please choose an option: ") ;
-			 System.out.println(" 1- place new reservation ") ;
-			 System.out.println(" 2- Find specific Reservation information ") ;
-			 System.out.println(" 3- cancel reservation ") ;
-			 System.out.println(" 4- display current reservation details ") ;
+			 System.out.println(" 1- View Available Rooms ") ;
+			 System.out.println(" 2- place new reservation ") ;
+			 System.out.println(" 3- Find specific Reservation information ") ;
+			 System.out.println(" 4- cancel reservation ") ;
 			 System.out.println(" 5- exit the system ") ;
 			  choice = input.nextInt() ;
 			  
 			  switch (choice) {
 			  
 			  case 1 :
+				  System.out.println("Available Rooms: \n");
+				  System.out.println("************************");
+                   System.out.println(" Available Suites : ") ;
+ 				  System.out.println("************************");
+
+				  
+				  Suite [] avSuite = h.DisplayAvailableSuite() ;
+				  if ( avSuite != null) 
+				  {
+					  for (int i = 0 ; i < avSuite.length ; i++)
+						  if (avSuite[i] != null)
+						  {
+						  System.out.println ( avSuite[i].toString() ) ;
+					      System.out.println ("======================" ) ;
+						  }
+				  }
+				  System.out.println("************************");
+                  System.out.println(" Available Regular Rooms : ") ;
+				  System.out.println("************************");
+
+				  
+				  Regular [] avRegular = h.DisplayAvailableRgular() ;
+				  if ( avRegular != null) 
+				  {
+					  for (int i = 0 ; i < avRegular.length ; i++)
+						  if (avRegular[i] != null)
+						  {
+						  System.out.println ( avRegular[i].toString() ) ;
+						  System.out.println ("======================" ) ;
+						  }
+				  }
+				break;
+			  case 2 :
 				  System.out.println(" Enter your Name:") ;
 				  String n = input.nextLine();
 				  
@@ -56,32 +89,7 @@ public class Test {
 				   
 				  Customer c = new Customer(id , n , pn) ;
 				  // displaying available rooms :
-				  System.out.println(" Available Suites : ") ;
-				  
-				  Suite [] avSuite = h.DisplayAvailableSuite() ;
-				  if ( avSuite != null) 
-				  {
-					  for (int i = 0 ; i < avSuite.length ; i++)
-						  if (avSuite[i] != null)
-						  {
-						  System.out.println ( avSuite[i].toString() ) ;
-					      System.out.println ("======================" ) ;
-						  }
-				  }
-				  System.out.println("***************************");
-                  System.out.println(" Available Regular Rooms : ") ;
-				  
-				  Regular [] avRegular = h.DisplayAvailableRgular() ;
-				  if ( avRegular != null) 
-				  {
-					  for (int i = 0 ; i < avRegular.length ; i++)
-						  if (avRegular[i] != null)
-						  {
-						  System.out.println ( avRegular[i].toString() ) ;
-						  System.out.println ("======================" ) ;
-						  }
-				  }
-				
+				 
 				  System.out.println(" Please choose room number : ") ;
 				  int rnum = input.nextInt() ;
 				  
@@ -100,13 +108,17 @@ public class Test {
 				  
 				  
 				  break ;
-			  case 2:
-					 System.out.println("Enter phone Number you want to cancel reservation ") ;
+			  case 3:
+					 System.out.println("Enter phone Number ") ;
 					 String phNo = input.next();
 					 Reservation Re1 = h.findReservation(phNo);
-					System.out.println( Re1.toString());
+					 if(Re1 != null)
+							System.out.println( Re1.toString());
+					 else
+						 System.out.println("There is no reservation with this phone Number ");
+
 					break;
-			  case 3:
+			  case 4:
 				  
 				  System.out.println(" Please choose room number to cancel reservation : ") ;
 				  int roomNo = input.nextInt() ;
@@ -118,12 +130,6 @@ public class Test {
 				  
 				  break ; 
 				  
-			  case 4 :
-				  //Reservation[] rList = h.LisOfReservations ;
-				  System.out.println( h.LisOfReservations [h.getnOfReservations() - 1].toString()) ;
-				  
-			  break ;	 
-			  
 			  case 5 :
 				  System.out.println(" Good Bye ") ;
 				break ; 

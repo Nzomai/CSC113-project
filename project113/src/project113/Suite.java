@@ -42,7 +42,16 @@ public class Suite extends Room{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n type: " + type ;
+		String s = super.toString() + " \n Type: ";
+		if(type == 'S' || type == 's')
+			s +=  "Superior";
+		else
+			if(type == 'J' || type == 'j')
+				s += "Junior" ;
+			else
+				if(type == 'D' || type == 'd')
+					s += "Deluxe";
+		return  s ;
 	}
 
 

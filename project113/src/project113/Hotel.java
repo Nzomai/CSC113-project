@@ -75,7 +75,7 @@ return false;
 
 public Room SearchRoom (int NRoom) {
 	
-	for (int i = 0 ; i<nOfReservations ; i++)
+	for (int i = 0 ; i < nOfRooms ; i++)
 		if (LisOfRooms[i].getRoomNo() == NRoom  )
 			return LisOfRooms[i] ;
 	return null ;
@@ -92,7 +92,7 @@ public boolean AddReservation(Reservation r) {
 
 public Reservation findReservation (String phoneNo) {
 	
-	for (int i = 0 ; i<nOfRooms ; i++)
+	for (int i = 0 ; i<nOfReservations ; i++)
 		if (LisOfReservations[i].getC().getPhoneNo().equals(phoneNo))
 			return LisOfReservations[i] ;
 	return null ;

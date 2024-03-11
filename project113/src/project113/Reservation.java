@@ -6,7 +6,6 @@ public class Reservation {
 	private int checkIn ;
 	private int checkOut ;
 	private Room customerRoom ;
-	private int nOfReserv ;
 	private Customer c ;
 
 
@@ -18,13 +17,12 @@ public class Reservation {
 		this.customerRoom = cRoom ;
 		customerRoom.setAvailable(false);
 		this.c = c ;
-		nOfReserv++ ;
 	}
 	
     public int generateResNumber() {
 		
-		int r = 111 ;
-		return (r + nOfReserv) ;
+		int r = 110 ;
+		return r  + 1;
 	}
 	
 	public int duration() {
