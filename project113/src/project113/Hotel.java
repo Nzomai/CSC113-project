@@ -81,7 +81,7 @@ public Room SearchRoom (int NRoom) {
 	return null ;
 }
 
-public boolean AddReservation(Reservation r) {
+public boolean addReservation(Reservation r) {
 	
 	if ( nOfReservations < LisOfReservations.length) {
 		LisOfReservations[nOfReservations++] = r ;

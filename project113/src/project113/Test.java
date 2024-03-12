@@ -101,7 +101,7 @@ public class Test {
 
 				  
 				  Reservation r1 = new Reservation( inDay , outDay , h.SearchRoom(rnum) , c) ;
-				  if(h.AddReservation(r1)) 
+				  if(h.addReservation(r1)) 
 					  System.out.println("Reservation have been placed successfully");
 				  else
 					  System.out.println("Can’t place reservation");
