@@ -18,7 +18,7 @@ public class Regular extends Room{
 	
 	@Override
 	public double calculatePrice() {
-		double p = (50 * nOfBeds) + Price; //it depends on number of beds he wants in a room
+		double p = (50 * nOfBeds) + Price; //it depends on number of beds in a room
 		if(view) {
 			p += 150;
 		}
