@@ -22,22 +22,22 @@ public class Suite extends Room{
 
 	@Override
 	public double calculatePrice() {
-		
+		double p = Price;
 		switch(type) {
 		case 'S' : case 's':  //Superior Suite
-			Price = Price + 1000;
+			p = Price + 1000;
 			break;
 		case 'J' : case 'j':  //Junior Suite
-			Price = Price + 700;
+			p = Price + 700;
 			break;
 		case 'D' : case 'd':  //Deluxe Suite
-			Price = Price + 500;
+			p = Price + 500;
 			break;
 		}
 		if(view) {
-			Price += 300;
+			p += 300;
 		}
-		return Price;
+		return p;
 	}
 
 	@Override
