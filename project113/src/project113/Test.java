@@ -12,9 +12,9 @@ public class Test {
 		// adding rooms to list of rooms in hotel:
 		
 		// Adding Suite:
-		h.addRoom( new Suite( 1 , 2 , true , 600 , 'd' ) )  ;
-		h.addRoom( new Suite( 2 , 2 , false , 600 , 's' ) )  ;
-		h.addRoom( new Suite( 3 , 2 , false , 600 , 'j' ) )  ;
+		h.addRoom( new Suite( 1 , 1 , true , 600 , 'd' ) )  ;
+		h.addRoom( new Suite( 2 , 1 , false , 600 , 's' ) )  ;
+		h.addRoom( new Suite( 3 , 1 , false , 600 , 'j' ) )  ;
 		h.addRoom( new Suite( 4 , 1 , true , 600 , 'S' ) )  ;
 		h.addRoom( new Suite( 5 , 1 , true , 600 , 'j' ) )  ;
 		h.addRoom( new Suite( 6 , 1 , false , 600 , 'd' ) )  ;
@@ -23,9 +23,9 @@ public class Test {
 		h.addRoom( new Regular( 7 , 2 , true , 300 , 2 ) )  ;
 		h.addRoom( new Regular( 8 , 2 , true , 300 , 1 ) )  ;
 		h.addRoom( new Regular( 9 , 2 , false , 300 , 3 ) )  ;
-		h.addRoom( new Regular( 10 , 1 , true , 300 , 2 ) )  ;
-		h.addRoom( new Regular( 11 , 1 , true , 300 , 3 ) )  ;
-		h.addRoom( new Regular( 12 , 1 , false , 300 , 2 ) )  ;
+		h.addRoom( new Regular( 10 , 2 , true , 300 , 2 ) )  ;
+		h.addRoom( new Regular( 11 , 2 , true , 300 , 3 ) )  ;
+		h.addRoom( new Regular( 12 , 2 , false , 300 , 2 ) )  ;
 		
 		
 		 System.out.println(" Welcome to  " + h.gethName() + " Hotel") ;
@@ -42,7 +42,7 @@ public class Test {
 			  
 			  switch (choice) {
 			  
-			  case 1 :
+			  case 1 : 				  // displaying available rooms :
 				  System.out.println("Available Rooms: \n");
 				  System.out.println("************************");
                    System.out.println(" Available Suites : ") ;
@@ -76,11 +76,11 @@ public class Test {
 				  }
 				break;
 			  case 2 :
+				  input.nextLine();
+
 				  System.out.println(" Enter your Name:") ;
 				  String n = input.nextLine();
-				  
-				  input.nextLine();
-				  
+				  				  
 				  System.out.println(" Enter your Id:") ;
 				  int id = input.nextInt(); 
 				  
@@ -88,8 +88,7 @@ public class Test {
 				  String pn = input.next();
 				   
 				  Customer c = new Customer(id , n , pn) ;
-				  // displaying available rooms :
-				 
+				  				 
 				  System.out.println(" Please choose room number : ") ;
 				  int rnum = input.nextInt() ;
 				  
