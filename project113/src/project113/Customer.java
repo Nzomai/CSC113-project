@@ -5,19 +5,17 @@ public class Customer {
 	private int cID ;
 	private String name ;
 	private String phoneNo ;
-	// public Reservation customerReserv;
 
 	public Customer (int id , String n , String phNo ) {
 
 		cID = id ;
 		name = n ;
 		phoneNo = phNo ;
-		//customerReserv = cReserv ; 
 	}
 
 	public String toString() {
 
-		return " Customer Name: " + name + ", ID IS: "+ cID + ", Phone Number: "+ phoneNo + "\n";
+		return " Customer Name: " + name + ", ID: "+ cID + ", Phone Number: "+ phoneNo + "\n";
 	}
 
 	public int getcID() {
