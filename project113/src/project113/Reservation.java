@@ -7,32 +7,35 @@ public class Reservation {
 	private int checkOut ;
 	private Room customerRoom ;
 	private Customer c ;
+	private static int r = 111;
 
 
 	public Reservation( int chIn , int chOut , Room cRoom , Customer c) {
 
-		ReservNo = generateResNumber();
+		ReservNo = r++;
 		this.checkIn = chIn ;
 		this.checkOut = chOut ;
 		this.customerRoom = cRoom ;
 		customerRoom.setAvailable(false);
 		this.c = c ;
+
 	}
 	
-    public int generateResNumber() {
-		
-		int r = 110 ;
-		return r  + 1;
-	}
-	
+    
 	public int duration() {
 		
 		return  checkOut - checkIn ;
 	}
 	
-	public double totalPrice() {      // calculate reservation's price 
-		
-		return customerRoom.calculatePrice() * this.duration() ; 
+	public double totalPrice() {  // calculate reservation's price 
+		double t = customerRoom.calculatePrice();
+		if(duration() == 1 )
+			return  t ; 
+		else {
+			t =  t * this.duration();
+			return t ;
+		}
+			
 		
 	}
 
@@ -41,7 +44,7 @@ public class Reservation {
 		@Override
 	public String toString() {
 
-		return  "Reservation Info: \n" +  c.toString() + "Reservation number = " + this.ReservNo + " \n Check in Day: " + this.checkIn +  " ,   Check out Day: " + checkOut + "\n Number of days: " + duration() + " \n Reservation Cost:  " + this.totalPrice() ;
+		return  "Reservation Info: \n" +  c.toString() + "Reservation number = " + this.ReservNo + " \n Check in Day: " + this.checkIn +  " ,   Check out Day: " + checkOut + "\n Number of days: " + duration() +" \n " + customerRoom.toString() +" \n Reservation Cost:  " + this.totalPrice() ;
 	}
 
 		public int getReservNo() {
