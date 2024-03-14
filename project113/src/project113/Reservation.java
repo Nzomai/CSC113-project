@@ -6,18 +6,17 @@ public class Reservation {
 	private int checkIn ;
 	private int checkOut ;
 	private Room customerRoom ;
-	private Customer c ;
-	private static int r = 111;
+	private Customer customer ;
+	private static int num = 111 ;
 
 
 	public Reservation( int chIn , int chOut , Room cRoom , Customer c) {
-
-		ReservNo = r++;
+		ReservNo = num++;
 		this.checkIn = chIn ;
 		this.checkOut = chOut ;
 		this.customerRoom = cRoom ;
 		customerRoom.setAvailable(false);
-		this.c = c ;
+		this.customer = c ;
 
 	}
 	
@@ -44,7 +43,7 @@ public class Reservation {
 		@Override
 	public String toString() {
 
-		return  "Reservation Info: \n" +  c.toString() + "Reservation number = " + this.ReservNo + " \n Check in Day: " + this.checkIn +  " ,   Check out Day: " + checkOut + "\n Number of days: " + duration() +" \n " + customerRoom.toString() +" \n Reservation Cost:  " + this.totalPrice() ;
+		return  "Reservation Info: \n" +  customer.toString() + "Reservation number = " + this.ReservNo + " \n Check in Day: " + this.checkIn +  " ,   Check out Day: " + checkOut + "\n Number of days: " + duration() +" \n " + customerRoom.toString() +" \n Reservation Cost:  " + this.totalPrice() ;
 	}
 
 		public int getReservNo() {
@@ -64,12 +63,9 @@ public class Reservation {
 		}
 
 		public Customer getC() {
-			return c;
+			return customer;
 		}
 
-		public void setC(Customer c) {
-			this.c = c;
-		}
 
 	
 
