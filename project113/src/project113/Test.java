@@ -28,7 +28,7 @@ public class Test {
 		h.addRoom( new Regular( 12 , 2 , false , 300 , 2 ) )  ;
 		
 		
-		 System.out.println(" Welcome to  " + h.gethName() + " Hotel") ;
+		 System.out.println("*********** Welcome to  " + h.gethName() + " Hotel ***********") ;
 		
 		 int choice ;
 		 do {
@@ -119,7 +119,7 @@ public class Test {
 					break;
 			  case 4:
 				  
-				  System.out.println(" Please choose room number to cancel reservation : ") ;
+				  System.out.println(" Please enter room number to cancel reservation : ") ;
 				  int roomNo = input.nextInt() ;
 				  
 				  if ( h.CancelReservation(roomNo)) 
@@ -131,7 +131,9 @@ public class Test {
 				  
 			  case 5 :
 				  System.out.println(" Good Bye ") ;
-				break ; 
+				break ;
+				default:
+					System.out.println("invalid input , Try again ");
 			  }
 		 } while ( choice != 5) ;
 				  
