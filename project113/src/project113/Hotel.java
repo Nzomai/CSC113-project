@@ -11,8 +11,8 @@ public Reservation [] LisOfReservations;
 
 
 
-public Hotel(String hName, String address , int size) {
-this.hName = hName;
+public Hotel(String n, String address , int size) {
+this.hName = n;
 Address = address;
 nOfRooms = 0;
 nOfReservations =0;
@@ -64,7 +64,7 @@ if (this.nOfRooms<LisOfRooms.length )
 if (R instanceof Suite) {
 	LisOfRooms [nOfRooms++] = new Suite ( (Suite)(R));
 } else
-if (R instanceof Regular) {
+    if (R instanceof Regular) {
 	LisOfRooms [nOfRooms++] = new Regular ( (Regular)(R) );
 }
 return true;
@@ -154,20 +154,6 @@ return nOfRooms;
 public void setnOfRooms(int nOfRooms) {
 this.nOfRooms = nOfRooms;
 }
-
-public Room[] getLisOfRooms() {
-return LisOfRooms;
-}
-
-public void setLisOfRooms(Room[] lisOfRooms) {
-LisOfRooms = lisOfRooms;
-}
-
-
-public Reservation[] getLisOfReservations() {
-	return LisOfReservations;
-}
-
 
 public int getnOfReservations() {
 	return nOfReservations;
