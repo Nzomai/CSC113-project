@@ -1,5 +1,6 @@
 package project113;
 
+import java.util.InputMismatchException;
 import java.util.Scanner ;
 public class Test {
 
@@ -12,12 +13,12 @@ public class Test {
 		// adding rooms to list of rooms in hotel:
 		
 		// Adding Suite:
-		h.addRoom( new Suite( 1 , 1 , true , 600 , 'd' ) )  ;
-		h.addRoom( new Suite( 2 , 1 , false , 600 , 's' ) )  ;
-		h.addRoom( new Suite( 3 , 1 , false , 600 , 'j' ) )  ;
+		h.addRoom( new Suite( 1 , 1 , true , 600 , 'D' ) )  ;
+		h.addRoom( new Suite( 2 , 1 , false , 600 , 'S' ) )  ;
+		h.addRoom( new Suite( 3 , 1 , false , 600 , 'J' ) )  ;
 		h.addRoom( new Suite( 4 , 1 , true , 600 , 'S' ) )  ;
-		h.addRoom( new Suite( 5 , 1 , true , 600 , 'j' ) )  ;
-		h.addRoom( new Suite( 6 , 1 , false , 600 , 'd' ) )  ;
+		h.addRoom( new Suite( 5 , 1 , true , 600 , 'J' ) )  ;
+		h.addRoom( new Suite( 6 , 1 , false , 600 , 'D' ) )  ;
 		
 		//Adding Regular:
 		h.addRoom( new Regular( 7 , 2 , true , 300 , 2 ) )  ;
@@ -30,7 +31,7 @@ public class Test {
 		
 		 System.out.println("*********** Welcome to  " + h.gethName() + " Hotel ***********") ;
 		
-		 int choice ;
+		 int choice = 0 ;
 		 do {
 			 System.out.println(" Please choose an option: ") ;
 			 System.out.println(" 1- View Available Rooms ") ;
@@ -38,7 +39,16 @@ public class Test {
 			 System.out.println(" 3- Find specific Reservation information ") ;
 			 System.out.println(" 4- cancel reservation ") ;
 			 System.out.println(" 5- exit the system ") ;
+			 boolean enter = true;
+			   
+			  while(enter) {
+			  try {
 			  choice = input.nextInt() ;
+			  enter = false;
+			  }catch(InputMismatchException e) { //unchecked exception
+				  String str = input.next();
+				  System.out.println(e.toString()+ " invalid input , try again");
+			  }	}	
 			  
 			  switch (choice) {
 			  
@@ -77,56 +87,69 @@ public class Test {
 				break;
 			  case 2 :
 				  input.nextLine();
-
+				 
 				  System.out.println(" Enter your Name:") ;
 				  String n = input.nextLine();
-				  				  
+				  
 				  System.out.println(" Enter your Id:") ;
 				  int id = input.nextInt(); 
 				  
 				  System.out.println(" Enter your Phone Number:") ;
 				  String pn = input.next();
 				   
-				  Customer c = new Customer(id , n , pn) ;
-				  				 
+				   Customer c = new Customer(id , n , pn) ;
+				  	 
 				  System.out.println(" Please choose room number : ") ;
 				  int rnum = input.nextInt() ;
 				  
-				  System.out.println(" Please enter Check in day : ") ;
+				  System.out.println(" Please enter Check-in day : ") ;
 				  int inDay = input.nextInt() ;
 				  
-				  System.out.println(" Please enter Check out day : ") ;
+				  System.out.println(" Please enter Check-out day : ") ;
 				  int outDay = input.nextInt() ;
-
 				  
-				  Reservation r1 = new Reservation( inDay , outDay , h.SearchRoom(rnum) , c) ;
+				Reservation r1 = new Reservation( inDay , outDay , h.SearchRoom(rnum) , c) ;
 				  if(h.addReservation(r1)) 
 					  System.out.println("Reservation have been placed successfully");
 				  else
 					  System.out.println("Can’t place reservation");
 				  
+				
+				  
 				  
 				  break ;
 			  case 3:
+				  
 					 System.out.println("Enter phone Number ") ;
 					 String phNo = input.next();
 					 Reservation Re1 = h.findReservation(phNo);
+					 		  
 					 if(Re1 != null)
 							System.out.println( Re1.toString());
 					 else
 						 System.out.println("There is no reservation with this phone Number ");
+					
 
 					break;
 			  case 4:
-				  
+				  try {
 				  System.out.println(" Please enter room number to cancel reservation : ") ;
 				  int roomNo = input.nextInt() ;
 				  
-				  if ( h.CancelReservation(roomNo)) 
-					  System.out.println(" Canceled Successfuly ") ;
-				  else
-					  System.out.println(" Can not be canceled ") ;
+				  if ( ! h.CancelReservation(roomNo)) {
+					  throw new ResrvationNotFound();} //checked exception (user defined exception)
+				  else {
+					  System.out.println("cancelled successfully");
+				  }
+				  }
+				  catch(ResrvationNotFound r)
+				  {
+				  System.out.println(r.toString());
+				  }
 				  
+					  
+				
+					  
 				  break ; 
 				  
 			  case 5 :

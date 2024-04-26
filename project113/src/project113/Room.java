@@ -23,7 +23,7 @@ public abstract class Room {
 
 	@Override
 	public String toString() {
-		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo + "\n Price is:" + this.calculatePrice()  ;
+		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo + "\n Room Price is:" + this.calculatePrice()  ;
 		if(view) {
 			s += "\n with view";
 		} else {
