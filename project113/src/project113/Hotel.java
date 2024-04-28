@@ -1,6 +1,12 @@
 package project113;
 
-public class Hotel {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Hotel implements Serializable{
 private String hName;
 private String Address;
 private int nOfRooms;
@@ -24,16 +30,18 @@ LisOfReservations = new Reservation [size];
 public Suite[] DisplayAvailableSuite() {
 Suite SuiteList [] = new Suite [nOfRooms];
 int s = 0;
-for (int i = 0 ; i<nOfRooms ; i++) 
+for (int i = 0 ; i<nOfRooms ; i++) {
 	if (LisOfRooms[i] instanceof Suite && LisOfRooms[i].getAvailable() ) {
 	SuiteList [s] = new Suite ((Suite) LisOfRooms[i]);
 	s++;
 	}
+}
 
-if (s == 0) 
+if (s == 0) {
 	return null;
- else 
+} else {
 	return SuiteList;
+}
 }
 
 
@@ -41,16 +49,18 @@ if (s == 0)
 public Regular[] DisplayAvailableRgular() {
 	Regular RegleList [] = new Regular [nOfRooms];
 int a = 0;
-for (int i = 0 ; i<nOfRooms ; i++) 
+for (int i = 0 ; i<nOfRooms ; i++) {
 	if (LisOfRooms[i] instanceof Regular && LisOfRooms[i].getAvailable() ) {
 		RegleList [a] = new Regular ((Regular) LisOfRooms[i]);
-	a++; 
+	a++;
 	}
-	
+}
 
-if (a == 0) 
+
+if (a == 0) {
 	return null;
- 
+}
+
 	return RegleList;
 }
 
@@ -74,15 +84,17 @@ return false;
 
 
 public Room SearchRoom (int NRoom) {
-	
-	for (int i = 0 ; i < nOfRooms ; i++)
-		if (LisOfRooms[i].getRoomNo() == NRoom  )
+
+	for (int i = 0 ; i < nOfRooms ; i++) {
+		if (LisOfRooms[i].getRoomNo() == NRoom  ) {
 			return LisOfRooms[i] ;
+		}
+	}
 	return null ;
 }
 
 public boolean addReservation(Reservation r) {
-	
+
 	if ( nOfReservations < LisOfReservations.length) {
 		LisOfReservations[nOfReservations++] = r ;
 		return true ;
@@ -91,23 +103,26 @@ public boolean addReservation(Reservation r) {
 }
 
 public Reservation findReservation (String phoneNo) {
-	
-	for (int i = 0 ; i<nOfReservations ; i++)
-		if (LisOfReservations[i].getC().getPhoneNo().equals(phoneNo))
+
+	for (int i = 0 ; i<nOfReservations ; i++) {
+		if (LisOfReservations[i].getC().getPhoneNo().equals(phoneNo)) {
 			return LisOfReservations[i] ;
+		}
+	}
 	return null ;
 }
 public boolean CancelReservation(int RNo) {
- 
+
 for(int i = 0 ; i < this.nOfReservations ; i++) {
 	if (LisOfReservations[i].getCustomerRoom().getRoomNo() == RNo )
 	{
-		LisOfReservations[i].getCustomerRoom().setAvailable(true);  // change room availability to true 
-		for(int j = 0 ; j < nOfReservations -1 ; j++)
-		LisOfReservations[j] = LisOfReservations[j+1] ;
+		LisOfReservations[i].getCustomerRoom().setAvailable(true);  // change room availability to true
+		for(int j = 0 ; j < nOfReservations -1 ; j++) {
+			LisOfReservations[j] = LisOfReservations[j+1] ;
+		}
 		nOfReservations-- ;
 		LisOfReservations[nOfReservations] = null ;
-		
+
 	return true ;
 	}
 }
@@ -130,6 +145,26 @@ for (int i = 0 ; i<nOfRooms ; i++) {
 }
 return str;
 }
+
+/// write file:
+	public void saveHotel(String fileName) { 
+		try {
+			File write = new File(fileName) ;
+			FileOutputStream outs = new FileOutputStream(write) ;
+			ObjectOutputStream hFile = new ObjectOutputStream(outs);
+			
+			hFile.writeObject(hName);
+			hFile.writeObject(LisOfReservations);
+			hFile.writeObject(LisOfRooms);
+			
+			hFile.close();
+			System.out.println("All Hotel Information is saved Successfully") ;
+		}
+		catch( IOException e) {
+			System.out.println(" Error! " + e.toString()) ;
+		}
+		
+	} // end of saveFile
 
 public String gethName() {
 return hName;

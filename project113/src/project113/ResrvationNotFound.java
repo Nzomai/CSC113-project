@@ -1,7 +1,7 @@
 package project113;
 
 public class ResrvationNotFound extends Exception{
-	
+
 	public ResrvationNotFound() {
 		super("can not be canceled");
 	}

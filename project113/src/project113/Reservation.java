@@ -1,6 +1,8 @@
 package project113;
 
-public class Reservation {
+import java.io.Serializable;
+
+public class Reservation implements Serializable{
 
 	private int ReservNo ;
 	private int checkIn ;
@@ -19,27 +21,27 @@ public class Reservation {
 		this.customer = c ;
 
 	}
-	
-    
+
+
 	public int duration() {
-		
+
 		return  checkOut - checkIn ;
 	}
-	
-	public double totalPrice() {  // calculate reservation's price 
+
+	public double totalPrice() {  // calculate reservation's price
 		double t = customerRoom.calculatePrice();
-		if(duration() == 1 )
-			return  t ; 
-		else {
+		if(duration() == 1 ) {
+			return  t ;
+		} else {
 			t =  t * this.duration();
 			return t ;
 		}
-			
-		
+
+
 	}
 
-	
-	
+
+
 		@Override
 	public String toString() {
 
@@ -67,7 +69,7 @@ public class Reservation {
 		}
 
 
-	
+
 
 
 

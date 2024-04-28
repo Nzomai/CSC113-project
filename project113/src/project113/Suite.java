@@ -10,15 +10,15 @@ public class Suite extends Room{
 	}
 
 
-	
+
 
 	public Suite(Suite s) {
-		
+
     super (s.RoomNo , s.floorNo , s.view , s.Price);
     type = s.type;
-    
+
 	}
-	
+
 
 	@Override
 	public double calculatePrice() {
@@ -43,14 +43,15 @@ public class Suite extends Room{
 	@Override
 	public String toString() {
 		String s = super.toString() + " \n Type: ";
-		if(type == 'S' || type == 's')
+		if(type == 'S' || type == 's') {
 			s +=  "Superior";
-		else
-			if(type == 'J' || type == 'j')
+		} else
+			if(type == 'J' || type == 'j') {
 				s += "Junior" ;
-			else
-				if(type == 'D' || type == 'd')
+			} else
+				if(type == 'D' || type == 'd') {
 					s += "Deluxe";
+				}
 		return  s ;
 	}
 

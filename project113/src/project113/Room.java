@@ -1,7 +1,8 @@
 package project113;
 
+import java.io.Serializable;
 
-public abstract class Room {
+public abstract class Room implements Serializable {
 
 	protected int RoomNo;
 	protected int floorNo;
@@ -23,13 +24,13 @@ public abstract class Room {
 
 	@Override
 	public String toString() {
-		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo + "\n Room Price is:" + this.calculatePrice()  ;
+		String s = "Room Number: " + RoomNo +"\n Floor Number: " + floorNo + "\n Price is:" + this.calculatePrice()  ;
 		if(view) {
 			s += "\n with view";
 		} else {
 			s += "\n whithout view";
 		}
-		
+
 		return s;
 	}
 

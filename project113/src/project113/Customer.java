@@ -1,6 +1,8 @@
 package project113;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable{
 
 	private int cID ;
 	private String name ;
@@ -13,6 +15,7 @@ public class Customer {
 		phoneNo = phNo ;
 	}
 
+	@Override
 	public String toString() {
 
 		return " Customer Name: " + name + ", ID: "+ cID + ", Phone Number: "+ phoneNo + "\n";
@@ -42,9 +45,9 @@ public class Customer {
 		this.phoneNo = phoneNo;
 	}
 
-	
-	
-	
+
+
+
 }
 
 
