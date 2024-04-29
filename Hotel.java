@@ -1,13 +1,10 @@
 package project113;
 
-import java.io.*;
-import java.util.*;
-
-/*import java.io.File;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;*/
+import java.io.Serializable;
 
 public class Hotel implements Serializable{
 private String hName;
@@ -170,30 +167,7 @@ return str;
 	} // end of saveFile
 	
 	
-	public void loadHotel (String fileName) {
-		try {
-			
-			File read = new File (fileName);
-			FileInputStream F = new FileInputStream(read);
-			ObjectInputStream in = new ObjectInputStream (F);
-			
-			String hname = (String)in.readObject();
-			Reservation [] Reserv = (Reservation [])in.readObject();
-			Room [] Ro = (Room [])in.readObject();
-			
-			in.close();
 	
-		}
-		catch (ClassNotFoundException e)
-		{
-			System.exit(0);
-		}
-		catch (IOException e) {
-			System.exit(0);
-
-		}	
-	}
-	//end of loadHotel
 
 public String gethName() {
 return hName;
